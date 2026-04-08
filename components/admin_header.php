@@ -42,19 +42,25 @@ $current_page = basename($_SERVER['PHP_SELF']);
     </div>
 
     <div class="admin-profile">
-        <?php if ($admin_profile && file_exists(__DIR__ . '/../uploads/' . $admin_profile)): ?>
-            <img src="<?php
-                $depth = (strpos($_SERVER['SCRIPT_FILENAME'], DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR) !== false) ? '../' : '';
-                echo $depth . 'uploads/' . htmlspecialchars($admin_profile);
-            ?>" alt="Profile" class="profile-img">
-        <?php else: ?>
-            <div class="profile-placeholder"><i class='bx bx-user'></i></div>
-        <?php endif; ?>
-        <div class="admin-info">
-            <span class="admin-label">Welcome back,</span>
-            <span class="admin-name"><?php echo $admin_name; ?></span>
+    <?php
+    $image = $admin_profile;
+    $server_path = __DIR__ . '/../uploads/' . $image;
+    $web_path = '../uploads/' . $image;
+    ?>
+
+    <?php if (!empty($image) && file_exists($server_path)): ?>
+        <img src="<?php echo $web_path; ?>" alt="Profile" class="profile-img">
+    <?php else: ?>
+        <div class="profile-placeholder">
+            <i class='bx bx-user'></i>
         </div>
+    <?php endif; ?>
+
+    <div class="admin-info">
+        <span class="admin-label">Welcome back,</span>
+        <span class="admin-name"><?php echo $admin_name; ?></span>
     </div>
+</div>
 
     <nav class="sidebar-nav">
         <a href="dashboard.php" class="nav-link <?php echo $current_page === 'dashboard.php' ? 'active' : ''; ?>">

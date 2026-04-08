@@ -36,159 +36,196 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login — Fabric Store</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="admin_style.css">
     <style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: var(--bg-dark);
-        margin: 0;
-    }
+        :root {
+            --ink:        #1C1C1C;
+            --ink-soft:   #2E2E2E;
+            --pearl:      #F7F5F2;
+            --pearl-warm: #F0EDE8;
+            --gold:       #C6A96B;
+            --stone:      #D6D0C8;
+            --text-mid:   #6B6560;
+            --text-muted: #A09890;
+            --border:     rgba(28, 28, 28, 0.09);
+        }
 
-    .auth-container {
-        width: 100%;
-        max-width: 420px;
-        padding: 20px;
-    }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .auth-box {
-        background: var(--sidebar-bg);
-        border-radius: 16px;
-        padding: 40px 36px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-        border: 1px solid rgba(255,255,255,0.05);
-    }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--pearl);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .auth-logo {
-        text-align: center;
-        margin-bottom: 32px;
-    }
+        .auth-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
 
-    .auth-logo i {
-        font-size: 48px;
-        color: var(--accent);
-    }
+        .auth-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 48px 42px;
+            box-shadow: 0 4px 28px rgba(28, 28, 28, 0.07);
+        }
 
-    .auth-logo h1 {
-        color: var(--text-primary);
-        font-size: 24px;
-        margin: 8px 0 4px;
-        letter-spacing: -0.5px;
-    }
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    .auth-logo p {
-        color: var(--text-muted);
-        font-size: 14px;
-    }
+        .auth-logo-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--ink);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+        }
 
-    .form-group {
-        margin-bottom: 20px;
-    }
+        .auth-logo-icon i { font-size: 26px; color: var(--gold); }
 
-    .form-group label {
-        display: block;
-        color: var(--text-secondary);
-        font-size: 13px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
+        .auth-logo h1 {
+            font-family: 'Shippori Mincho', serif;
+            color: var(--ink-soft);
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
 
-    .input-wrap {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
+        .auth-logo p {
+            color: var(--text-muted);
+            font-size: 12.5px;
+            letter-spacing: 0.5px;
+        }
 
-    .input-wrap i {
-        position: absolute;
-        left: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--text-muted);
-        font-size: 18px;
-        pointer-events: none;
-    }
+        .form-group { margin-bottom: 18px; }
 
-    .form-group input {
-        width: 100%;
-        padding: 12px 14px 12px 55px;
-        background: var(--bg-dark);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        color: var(--text-primary);
-        font-size: 15px;
-        outline: none;
-        transition: border-color 0.2s;
-        box-sizing: border-box;
-    }
+        .form-group label {
+            display: block;
+            color: var(--text-muted);
+            font-size: 10px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+        }
 
-    .form-group input:focus {
-        border-color: var(--accent);
-    }
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
 
-    .btn-full {
-        width: 100%;
-        padding: 13px;
-        background: var(--accent);
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 0.2s, transform 0.1s;
-        letter-spacing: 0.3px;
-        margin-top: 4px;
-    }
+        .input-wrap i {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--stone);
+            font-size: 17px;
+            pointer-events: none;
+        }
 
-    .btn-full:hover {
-        background: var(--accent-hover);
-        transform: translateY(-1px);
-    }
+        .input-wrap input {
+            width: 100%;
+            padding: 12px 13px 12px 42px;
+            background: var(--pearl-warm);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            color: var(--ink-soft);
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
+        }
 
-    .auth-link {
-        text-align: center;
-        margin-top: 24px;
-        color: var(--text-muted);
-        font-size: 14px;
-    }
+        .input-wrap input:focus {
+            border-color: var(--ink-soft);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(28, 28, 28, 0.04);
+        }
 
-    .auth-link a {
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 600;
-    }
+        .btn-full {
+            width: 100%;
+            padding: 13px;
+            background: var(--ink);
+            color: #fff;
+            border: 1px solid var(--ink);
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
 
-    .auth-link a:hover {
-        text-decoration: underline;
-    }
+        .btn-full:hover { background: #2E2E2E; }
 
-    /* Autofill Fix */
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus {
-        -webkit-box-shadow: 0 0 0px 1000px var(--bg-dark) inset !important;
-        -webkit-text-fill-color: var(--text-primary) !important;
-        border: 1px solid var(--border-color) !important;
-    }
+        .auth-divider {
+            text-align: center;
+            margin: 24px 0 0;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
 
-    .input-wrap input {
-        padding-left: 55px !important;
-    }
-</style>
+        .auth-divider a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-divider a:hover { text-decoration: underline; }
+
+        .gold-line {
+            width: 36px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 28px;
+            opacity: 0.6;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px var(--pearl-warm) inset !important;
+            -webkit-text-fill-color: var(--ink-soft) !important;
+            border: 1px solid var(--border) !important;
+        }
+
+        .swal2-confirm { background: var(--ink) !important; }
+    </style>
 </head>
 <body>
     <div class="auth-container">
         <div class="auth-box">
             <div class="auth-logo">
-                <i class='bx bx-store-alt'></i>
+                <div class="auth-logo-icon">
+                    <i class='bx bx-store-alt'></i>
+                </div>
                 <h1>Fabric Store</h1>
-                <p>Admin Panel — Sign in to continue</p>
+                <div class="gold-line"></div>
+                <p>Admin Portal — Sign in to continue</p>
             </div>
             <form method="POST" action="">
                 <div class="form-group">
@@ -211,7 +248,7 @@ if (isset($_POST['login'])) {
                     <i class='bx bx-log-in'></i> Sign In
                 </button>
             </form>
-            <div class="auth-link">
+            <div class="auth-divider">
                 Don't have an account? <a href="register.php">Register here</a>
             </div>
         </div>

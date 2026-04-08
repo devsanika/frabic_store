@@ -64,6 +64,7 @@ include '../components/admin_header.php';
     <h2 class="heading">Add New Product</h2>
 </div>
 
+<div class="form-wrapper">
 <div class="form-container">
     <form method="POST" action="" enctype="multipart/form-data" class="product-form">
         <div class="form-row">
@@ -108,6 +109,7 @@ include '../components/admin_header.php';
             </button>
         </div>
     </form>
+</div>
 </div>
 
 <script>
