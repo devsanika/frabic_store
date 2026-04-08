@@ -23,6 +23,14 @@ A full-stack **admin panel** for managing a fabric and textiles store, built wit
 | Alerts | SweetAlert2 |
 | Server | Apache (XAMPP / WAMP recommended) |
 
+## 📸 UI Preview
+
+![Dashboard](UI/dashboard.png)
+![Products](UI/view.png)
+![Add](UI/add.png)
+![Orders](UI/orders.png)
+
+
 ## Project Structure
 
 ```
@@ -87,8 +95,7 @@ Open `components/connect.php` and verify:
 $host     = 'localhost';
 $db_name  = 'fabric_store';
 $username = 'root';
-$password = '';           // Add your MySQL password if set
-```
+$password = '';           
 
 ### 5. Set Upload Folder Permissions
 
