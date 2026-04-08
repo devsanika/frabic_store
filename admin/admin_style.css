@@ -562,6 +562,7 @@ input, textarea, select, button {
     border-top: 1px solid var(--border);
     margin-top: 4px;
     justify-content: center;
+
 }
 
 /* ─── File Upload ─── */

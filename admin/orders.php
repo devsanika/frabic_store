@@ -168,13 +168,13 @@ include '../components/admin_header.php';
             Order: <?php echo ucfirst(htmlspecialchars($order['status'] ?? 'pending')); ?>
         </option>
         <option value="pending">Pending</option>
-<option value="confirmed">Confirmed</option>
-<option value="shipped">Shipped</option>
-<option value="out for delivery">Out for Delivery</option>
-<option value="delivered">Delivered</option>
-<option value="canceled">Canceled</option>
-<option value="returned">Returned</option>
-<option value="refunded">Refunded</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="shipped">Shipped</option>
+        <option value="out for delivery">Out for Delivery</option>
+        <option value="delivered">Delivered</option>
+        <option value="canceled">Canceled</option>
+        <option value="returned">Returned</option>
+        <option value="refunded">Refunded</option>
     </select>
 
     <!-- PAYMENT STATUS -->
