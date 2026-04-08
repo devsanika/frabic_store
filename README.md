@@ -1,10 +1,10 @@
-# 🧵 Fabric Store
+# Fabric Store
 
 A full-stack e-commerce web application for browsing and purchasing fabrics and textiles, built with **PHP**, **MySQL**, and vanilla **HTML/CSS/JS**. Features a customer-facing storefront and a complete admin panel for managing products, orders, and users.
 
-## 📸 Features
+## Features
 
-### 🔧 Admin Panel
+### Admin Panel
 - **Secure login** with SHA1-hashed passwords and session-based authentication
 - **Dashboard** with live stats: total products, active/inactive products, registered users, admins, messages, and order counts
 - **Product Management** — Add, edit, view, and toggle active/deactive status; image upload with format and size validation (JPG/PNG, max 2MB)
@@ -13,12 +13,7 @@ A full-stack e-commerce web application for browsing and purchasing fabrics and 
 - **Messages** — View customer inquiries submitted via the contact form
 - **Admin Registration** — Add new admin accounts
 
-## 📸 UI Preview
-
-![Dashboard](UI/dashboard.png)
-![Products](UI/view.png)
-
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 frabic_store-main/
@@ -47,8 +42,12 @@ frabic_store-main/
 ├── admin/admin_style.css      # Admin panel styling
 └── uploads/                   # Product images (auto-managed)
 ```
+## UI Preview
 
-## 🛠️ Tech Stack
+![Dashboard](UI/dashboard.png)
+![Products](UI/view.png)
+
+## Tech Stack
 
 | Layer     | Technology                          |
 |-----------|-------------------------------------|
@@ -59,7 +58,8 @@ frabic_store-main/
 | Alerts    | SweetAlert2                         |
 | Server    | Apache (XAMPP / WAMP recommended)   |
 
-## ⚙️ Setup Instructions
+
+## Setup Instructions
 
 ### Prerequisites
 - [XAMPP](https://www.apachefriends.org/) (or any Apache + MySQL stack)
@@ -124,7 +124,7 @@ Admin panel:
 http://localhost/frabic_store-main/admin/login.php
 ```
 
-## 🗄️ Database Schema
+## Database Schema
 
 | Table      | Description                              |
 |------------|------------------------------------------|
@@ -136,22 +136,27 @@ http://localhost/frabic_store-main/admin/login.php
 | `wishlist` | Saved/wishlist items per user            |
 | `message`  | Customer contact form submissions        |
 
-## 🚀 Usage
+## Usage
 
 1. **Admin** — Log in at `/admin/login.php` to add products, manage orders, and view messages.
 2. **Customers** — Visit `index.php` to browse all active products.
 3. To mark a product as visible on the storefront, set its status to **active** in the admin panel.
 4. Product images must be **JPG or PNG**, and no larger than **2MB**.
 
-
-## 📌 Notes
+## Notes
 
 - Passwords are hashed using **SHA1**. For production use, consider upgrading to `password_hash()` with `PASSWORD_BCRYPT`.
 - The `uploads/` folder stores all product images — do not delete it.
 - The project uses **PDO** with prepared statements throughout, protecting against SQL injection.
 
-## 🤝 Contributing
+##  Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
 
+## Author
 
+Sanika Kotwal
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
